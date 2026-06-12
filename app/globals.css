@@ -1,26 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
+/* Nike Design System — CSS Variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand */
+  --nike-ink:              #111111;
+  --nike-canvas:           #ffffff;
+  --nike-soft-cloud:       #f5f5f5;
+  --nike-charcoal:         #39393b;
+  --nike-ash:              #4b4b4d;
+  --nike-mute:             #707072;
+  --nike-stone:            #9e9ea0;
+  --nike-hairline:         #cacacb;
+  --nike-hairline-soft:    #e5e5e5;
+
+  /* Semantic */
+  --nike-sale:             #d30005;
+  --nike-success:          #007d48;
+  --nike-info:             #1151ff;
+
+  /* Spacing (8px base) */
+  --sp-xxs:  2px;
+  --sp-xs:   4px;
+  --sp-sm:   8px;
+  --sp-md:   12px;
+  --sp-lg:   18px;
+  --sp-xl:   24px;
+  --sp-xxl:  30px;
+  --sp-section: 48px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--nike-canvas);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--nike-canvas);
+  color: var(--nike-ink);
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--nike-soft-cloud); }
+::-webkit-scrollbar-thumb { background: var(--nike-hairline); }
