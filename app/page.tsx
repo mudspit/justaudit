@@ -284,7 +284,7 @@ export default function Home() {
         {/* Loading */}
         {loading && (
           <div style={{ textAlign: 'center', padding: '80px 0' }}>
-            <CheckLogo size={48} />
+            <LikeyLogo height={48} />
             <p style={{
               marginTop: 16,
               fontSize: 14,
