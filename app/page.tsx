@@ -8,12 +8,20 @@ import MetaTable from '@/components/MetaTable';
 
 type Tab = 'overview' | 'seo' | 'aeo' | 'geo' | 'vitals';
 
-/* ── Hollow check SVG logo (ink black) ── */
-function CheckLogo({ size = 28 }: { size?: number }) {
+/* ── LIKEY / Just Audit logo ── */
+function LikeyLogo({ height = 40 }: { height?: number }) {
+  const scale = height / 56;
+  const w = Math.round(220 * scale);
+  const h = height;
   return (
-    <svg width={size} height={size} viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="14" cy="14" r="12.5" stroke="#111111" strokeWidth="1.5"/>
-      <polyline points="8,14 12.5,18.5 20,10" stroke="#111111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+    <svg width={w} height={h} viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Bold angular checkmark */}
+      <polygon points="0,28 8,20 22,36 48,4 58,12 22,54" fill="#111111"/>
+      {/* LIKEY wordmark */}
+      <text x="70" y="36" fontFamily="'Inter','Helvetica Neue',Helvetica,Arial,sans-serif" fontSize="34" fontWeight="800" fill="#111111" letterSpacing="-0.5">LIKEY</text>
+      {/* ■ Just Audit tagline */}
+      <rect x="70" y="43" width="7" height="7" fill="#111111"/>
+      <text x="82" y="50" fontFamily="'Inter','Helvetica Neue',Helvetica,Arial,sans-serif" fontSize="11" fontWeight="600" fill="#111111" letterSpacing="0.2">Just Audit</text>
     </svg>
   );
 }
@@ -170,15 +178,7 @@ export default function Home() {
           maxWidth: 1280, margin: '0 auto', width: '100%',
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <CheckLogo size={24} />
-            <span style={{
-              fontSize: 16,
-              fontWeight: 700,
-              letterSpacing: '-0.2px',
-              color: '#111111',
-            }}>JUST AUDIT</span>
-          </div>
+          <LikeyLogo height={36} />
           <span style={{
             fontSize: 13,
             fontWeight: 500,
@@ -738,20 +738,25 @@ export default function Home() {
       {/* ── FOOTER ── */}
       <footer style={{
         marginTop: 48,
-        background: '#ffffff',
+        background: '#f5f5f5',
         borderTop: '1px solid #cacacb',
-        padding: '20px 24px',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8,
+        padding: '28px 24px',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <CheckLogo size={18} />
-          <span style={{ fontSize: 14, fontWeight: 700, letterSpacing: '-0.1px', color: '#111111' }}>
-            JUST AUDIT
-          </span>
+        <div style={{
+          maxWidth: 1280, margin: '0 auto',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16,
+        }}>
+          <LikeyLogo height={40} />
+          <div style={{ textAlign: 'right' }}>
+            <p style={{ fontSize: 12, fontWeight: 500, color: '#9e9ea0', marginBottom: 4 }}>
+              SEO · AEO · GEO · Powered by Google PageSpeed Insights
+            </p>
+            <p style={{ fontSize: 12, fontWeight: 500, color: '#707072' }}>
+              Web app ideation and creation by{' '}
+              <span style={{ color: '#111111', fontWeight: 700 }}>Sherwin (mudspit) Martin</span>
+            </p>
+          </div>
         </div>
-        <p style={{ fontSize: 12, fontWeight: 500, color: '#9e9ea0' }}>
-          SEO · AEO · GEO · Powered by Google PageSpeed Insights
-        </p>
       </footer>
     </div>
   );
