@@ -192,48 +192,64 @@ export default function Home() {
         <div style={{
           background: '#ffffff',
           padding: '96px 24px 64px',
-          textAlign: 'center',
         }}>
-          <div style={{ maxWidth: 760, margin: '0 auto' }}>
-            <h1 style={{
-              fontSize: 'clamp(48px, 8vw, 96px)',
-              fontWeight: 700,
-              lineHeight: 0.9,
-              letterSpacing: '-1px',
-              color: '#111111',
-              textTransform: 'uppercase',
-              margin: 0,
-              marginBottom: 24,
-            }}>
-              Audit Your Website
-            </h1>
-            <p style={{
-              fontSize: 16,
-              fontWeight: 400,
-              color: '#707072',
-              lineHeight: 1.5,
-              marginBottom: 40,
-            }}>
-              Full analysis covering SEO, Answer Engine Optimization, and Generative Engine Optimization — with a downloadable report.
-            </p>
+          <div style={{
+            maxWidth: 1280, margin: '0 auto',
+            display: 'flex', alignItems: 'center', gap: 48,
+            flexWrap: 'wrap',
+          }}>
+            <div style={{ flex: '1 1 480px', textAlign: 'left', minWidth: 0 }}>
+              <h1 style={{
+                fontSize: 'clamp(40px, 7vw, 88px)',
+                fontWeight: 700,
+                lineHeight: 0.9,
+                letterSpacing: '-1px',
+                color: '#111111',
+                textTransform: 'uppercase',
+                margin: 0,
+                marginBottom: 24,
+              }}>
+                Audit Your Website
+              </h1>
+              <p style={{
+                fontSize: 16,
+                fontWeight: 400,
+                color: '#707072',
+                lineHeight: 1.5,
+                marginBottom: 40,
+                maxWidth: 520,
+              }}>
+                Full analysis covering SEO, Answer Engine Optimization, and Generative Engine Optimization — with a downloadable report.
+              </p>
 
-            {/* Feature pills */}
-            <div style={{ display: 'flex', justifyContent: 'center', gap: 8, flexWrap: 'wrap' }}>
-              {[
-                'SEO · Technical & On-Page',
-                'AEO · Schema & Snippets',
-                'GEO · AI Citation & E-E-A-T',
-                'Core Web Vitals',
-              ].map(label => (
-                <span key={label} style={{
-                  background: '#f5f5f5',
-                  color: '#111111',
-                  fontSize: 13,
-                  fontWeight: 500,
-                  padding: '8px 16px',
-                  borderRadius: 9999,
-                }}>{label}</span>
-              ))}
+              {/* Feature pills */}
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                {[
+                  'SEO · Technical & On-Page',
+                  'AEO · Schema & Snippets',
+                  'GEO · AI Citation & E-E-A-T',
+                  'Core Web Vitals',
+                ].map(label => (
+                  <span key={label} style={{
+                    background: '#f5f5f5',
+                    color: '#111111',
+                    fontSize: 13,
+                    fontWeight: 500,
+                    padding: '8px 16px',
+                    borderRadius: 9999,
+                  }}>{label}</span>
+                ))}
+              </div>
+            </div>
+
+            {/* Hand-drawn LIKEY mascot illustration */}
+            <div style={{ flex: '0 1 380px', minWidth: 260, textAlign: 'center' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/likey-hero.webp"
+                alt="LIKEY checkmark illustration"
+                style={{ width: '100%', maxWidth: 380, height: 'auto' }}
+              />
             </div>
           </div>
         </div>
@@ -742,19 +758,58 @@ export default function Home() {
         borderTop: '1px solid #cacacb',
         padding: '28px 24px',
       }}>
-        <div style={{
-          maxWidth: 1280, margin: '0 auto',
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16,
-        }}>
-          <LikeyLogo height={40} />
-          <div style={{ textAlign: 'right' }}>
-            <p style={{ fontSize: 12, fontWeight: 500, color: '#9e9ea0', marginBottom: 4 }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+          <div style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16,
+            marginBottom: 20,
+          }}>
+            <LikeyLogo height={40} />
+
+            {/* PayPal donate button */}
+            <form action="https://www.paypal.com/donate" method="post" target="_blank" style={{ display: 'flex', alignItems: 'center' }}>
+              <input type="hidden" name="business" value="mudspit@gmail.com" />
+              <input type="hidden" name="no_recurring" value="0" />
+              <input type="hidden" name="item_name" value="Support Just Audit" />
+              <input type="hidden" name="currency_code" value="USD" />
+              <button
+                type="submit"
+                style={{
+                  background: '#ffc439',
+                  color: '#111111',
+                  border: 'none',
+                  padding: '0 24px',
+                  height: 44,
+                  fontSize: 14,
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  borderRadius: 9999,
+                  fontFamily: 'inherit',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                💛 Donate via PayPal
+              </button>
+            </form>
+          </div>
+
+          <div style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16,
+            paddingTop: 16, borderTop: '1px solid #e5e5e5',
+          }}>
+            <p style={{ fontSize: 12, fontWeight: 500, color: '#9e9ea0' }}>
               SEO · AEO · GEO · Powered by Google PageSpeed Insights
             </p>
-            <p style={{ fontSize: 12, fontWeight: 500, color: '#707072' }}>
-              Web app ideation and creation by{' '}
-              <span style={{ color: '#111111', fontWeight: 700 }}>Sherwin (mudspit) Martin</span>
-            </p>
+            <div style={{ textAlign: 'right' }}>
+              <p style={{ fontSize: 12, fontWeight: 500, color: '#707072', marginBottom: 4 }}>
+                Web app ideation and creation by{' '}
+                <span style={{ color: '#111111', fontWeight: 700 }}>Sherwin (mudspit) Martin</span>
+              </p>
+              <p style={{ fontSize: 12, fontWeight: 500, color: '#9e9ea0' }}>
+                <a href="https://artxtreme.biz" target="_blank" rel="noopener noreferrer" style={{ color: '#707072', textDecoration: 'none' }}>artxtreme.biz</a>
+                {' · '}
+                <a href="https://mudpixel.com" target="_blank" rel="noopener noreferrer" style={{ color: '#707072', textDecoration: 'none' }}>mudpixel.com</a>
+              </p>
+            </div>
           </div>
         </div>
       </footer>
